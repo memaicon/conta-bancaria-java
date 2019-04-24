@@ -17,3 +17,11 @@
 
 ### Reponsáveis
 Maicon Esperafico
+
+
+### License
+----
+
+MIT
+
+**Software Livre!**
