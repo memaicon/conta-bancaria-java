@@ -2,6 +2,7 @@ package com.app;
 
 public class ContaCorrente extends Cliente {
     
+    protected int totalContas = 4;
     protected int agencia;
     protected int numConta;
     protected float saldo;
@@ -11,14 +12,14 @@ public class ContaCorrente extends Cliente {
     }
 
     // Construtor
-    public ContaCorrente(String nome, String cpf, int agencia, int numConta) {
+    public ContaCorrente(String nome, String cpf, int agencia, int numConta, float saldo) {
         this.nome = nome;
         this.cpf = cpf;
         this.agencia = agencia;
         this.numConta = numConta;
-        this.saldo = 0;
+        this.saldo = saldo;
     }
-
+    
     // Getters & Setters
     public String getCliente() {
         return nome;
@@ -26,6 +27,14 @@ public class ContaCorrente extends Cliente {
 
     public void setCliente(String nome) {
         this.nome = nome;
+    }
+    
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public int getNumConta() {
@@ -54,6 +63,12 @@ public class ContaCorrente extends Cliente {
 
     // Métodos 
     public void sacar(int saque) {
+        // Verifica se o valor é menor ou igual a 0, caso seja não efeta saque.
+        if(saque <= 0) {
+            System.out.println("Não pode ser efetuados saques com valor igual ou inferior a 0(zero).\n");
+            return;
+        }
+        
         if (saque <= saldo) {
             saldo = saldo - saque;
             System.out.println("Saque de R$" + saque + " efetuado com sucesso!" + "\nSaldo atual: R$" + getSaldo());
@@ -63,14 +78,26 @@ public class ContaCorrente extends Cliente {
     }
 
     public void depositar(float deposito) {
+        // Verifica se o valor é menor ou igual a 0, caso seja não efeta deposito.
+        if(deposito <= 0) {
+            System.out.println("Não pode ser efetuados depósitos com valor igual ou inferior a 0(zero).\n");
+            return;
+        }
+        
         saldo = saldo + deposito;
         System.out.println("Deposito de R$" + deposito + " efetuado com sucesso!" + "\nSaldo atual: R$" + getSaldo());
     }
 
     public void trasferencia(float valor, String favorecido) {
+        // Verifica se o valor é menor ou igual a 0, caso seja não efeta tranferência.
+        if(valor <= 0) {
+            System.out.println("Não pode ser efetuadas tranferências com valor igual ou inferior a 0(zero).\n");
+            return;
+        }
+        
         if (valor <= getSaldo()) {
             saldo = saldo - valor;
-            System.out.println("Tranferencia realizado com sucesso!" + "\nNome do favorecido: " + favorecido + "\nSaldo atual: R$" + getSaldo());
+            System.out.println("Tranferência realizada com sucesso!" + "\nNome do favorecido: " + favorecido + "\nSaldo atual: R$" + getSaldo());
         } else {
             System.out.println("Saldo insuficiente." + "\nTente novamente");
         }
