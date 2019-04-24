@@ -9,48 +9,16 @@ public class ContaEspecial extends ContaCorrente {
     }
 
     // Construtor
-    public ContaEspecial(String nome, String cpf, int agencia, int numConta, float limite) {
+    public ContaEspecial(String nome, String cpf, int agencia, int numConta, float limite, float saldo) {
         this.nome = nome;
         this.cpf = cpf;
         this.agencia = agencia;
         this.numConta = numConta;
-        this.saldo = 0;
         this.limite = limite;
-    }
-
-    // Getters & Setters
-    public String getCliente() {
-        return nome;
-    }
-
-    public void setCliente(String nome) {
-        this.nome = nome;
-    }
-
-    public int getNumConta() {
-        return numConta;
-    }
-
-    public void setNumConta(int numConta) {
-        this.numConta = numConta;
-    }
-
-    public float getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(float saldo) {
         this.saldo = saldo;
     }
 
-    public int getAgencia() {
-        return agencia;
-    }
-
-    public void setAgencia(int agencia) {
-        this.agencia = agencia;
-    }
-    
+    // Getters & Setters
     public float getLimite() {
         return limite;
     }
@@ -59,31 +27,22 @@ public class ContaEspecial extends ContaCorrente {
         this.limite = limite;
     }
 
-    // Métodos 
-    public void sacar(int saque) {
-        if (saque <= saldo) {
-            saldo = saldo - saque;
-            System.out.println("Saque de R$" + saque + " efetuado com sucesso!" + "\nSaldo atual: R$" + getSaldo());
-        } else {
-            System.out.println("Saldo insuficiente" + "\nTente novamente");
-        }
-    }
-
+    // Métodos
+    @Override
     public void depositar(float deposito) {
-        saldo = saldo + deposito;
-        System.out.println("Deposito de R$" + deposito + " efetuado com sucesso!" + "\nSaldo atual: R$" + getSaldo());
-    }
-
-    public void trasferencia(float valor, String favorecido) {
-        if (valor <= getSaldo()) {
-            saldo = saldo - valor;
-            System.out.println("Tranferencia realizado com sucesso!" + "\nNome do favorecido: " + favorecido + "\nSaldo atual: R$" + getSaldo());
-        } else {
-            System.out.println("Saldo insuficiente." + "\nTente novamente");
+        // Verifica se o valor é menor ou igual a 0, caso seja não efeta deposito.
+        if(deposito <= 0) {
+            System.out.println("Não pode ser efetuados depósitos com valor igual ou inferior a 0(zero).\n");
+            return;
         }
-    }
-
-    public void consultarSaldo() {
-        System.out.println("Seu saldo é de: R$" + this.saldo);
+        
+        // Verifica se saldo + o valor do depósito não excede o limite da conta.
+        if((saldo + deposito) > getLimite()) {
+            System.out.println("O valor ultrapassa o limite da conta.\n");
+            return;
+        }
+                
+        saldo = saldo + deposito;
+        System.out.println("Deposito de R$" + deposito + " efetuado com sucesso!" + "\nSaldo atual: R$" + getSaldo() + "\n");
     }
 }
