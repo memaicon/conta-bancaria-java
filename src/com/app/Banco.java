@@ -176,7 +176,7 @@ public class Banco {
         numConta = entrada.nextInt();
         
         for(int i = 0; i < novaContaCorrente.length; i++) {
-            if (numConta == novaContaCorrente[i].getNumConta()) {
+            if (novaContaCorrente[i] != null && numConta == novaContaCorrente[i].getNumConta()) {
                 System.out.print("Olá, " + novaContaCorrente[i].getCliente() + "\n");
                 System.out.print("Ente com o valor a ser sacado: ");
                 valor = entrada.nextInt();
@@ -199,7 +199,7 @@ public class Banco {
         numConta = entrada.nextInt();
         
         for(int i = 0; i < novaContaEspecial.length; i++) {
-            if (numConta == novaContaEspecial[i].getNumConta()) {
+            if (novaContaEspecial[i] != null && numConta == novaContaEspecial[i].getNumConta()) {
                 System.out.print("Olá, " + novaContaEspecial[i].getCliente() + "\n");
                 System.out.print("Ente com o valor a ser sacado: ");
                 valor = entrada.nextInt();
@@ -222,7 +222,7 @@ public class Banco {
         numConta = entrada.nextInt();
         
         for(int i = 0; i < novaContaCorrente.length; i++) {
-            if (numConta == novaContaCorrente[i].getNumConta()) {
+            if (novaContaCorrente[i] != null && numConta == novaContaCorrente[i].getNumConta()) {
                 System.out.print("Ente com o valor a ser depositado: ");
                 valor = entrada.nextInt();
                 
@@ -244,7 +244,7 @@ public class Banco {
         numConta = entrada.nextInt();
         
         for(int i = 0; i < novaContaEspecial.length; i++) {
-            if (numConta == novaContaEspecial[i].getNumConta()) {
+            if (novaContaEspecial[i] != null && numConta == novaContaEspecial[i].getNumConta()) {
                 System.out.print("Ente com o valor a ser depositado: ");
                 valor = entrada.nextInt();
                 
