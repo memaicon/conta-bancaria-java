@@ -174,7 +174,7 @@ public class Banco {
         
         System.out.print("Ente com o número da conta a ser sacado: ");
         numConta = entrada.nextInt();
-        
+
         for(int i = 0; i < novaContaCorrente.length; i++) {
             if (novaContaCorrente[i] != null && numConta == novaContaCorrente[i].getNumConta()) {
                 System.out.print("Olá, " + novaContaCorrente[i].getCliente() + "\n");
@@ -183,11 +183,10 @@ public class Banco {
                 
                 novaContaCorrente[i].sacar(valor);
                 return;
-            } else {
-                System.out.print("Desculpe. Conta não encontrada.\n");
-                return;
             }
         }
+        
+        System.out.print("Desculpe. Conta não encontrada.\n");
     }
     
     private static void sacarContaEspecial() {       
@@ -206,11 +205,10 @@ public class Banco {
                 
                 novaContaEspecial[i].sacar(valor);
                 return;
-            } else {
-                System.out.print("Desculpe. Conta não encontrada.\n");
-                return;
             }
         }
+        
+        System.out.print("Desculpe. Conta não encontrada.\n");
     }
     
     private static void depositarContaCorrente() {       
@@ -228,11 +226,10 @@ public class Banco {
                 
                 novaContaCorrente[i].depositar(valor);
                 return;
-            } else {
-                System.out.print("Desculpe. Conta não encontrada.\n");
-                return;
             }
         }
+        
+        System.out.print("Desculpe. Conta não encontrada.\n");
     }
     
     private static void depositarContaEspecial() {       
@@ -250,10 +247,9 @@ public class Banco {
                 
                 novaContaEspecial[i].depositar(valor);
                 return;
-            } else {
-                System.out.print("Desculpe. Conta não encontrada.\n");
-                return;
             }
         }
+        
+        System.out.print("Desculpe. Conta não encontrada.\n");
     }
 }
