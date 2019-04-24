@@ -1,4 +1,4 @@
-## TRABALHO T2G1 POO I
+## TRABALHO T2G1 LPOO I
 
 > Sistema de Gerenciamento de contas bancárias
 > Disciplina de LPOO (Linguagem de Programação Orientada a Objetos)
