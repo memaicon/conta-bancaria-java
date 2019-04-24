@@ -2,7 +2,6 @@ package com.app;
 
 public class ContaCorrente extends Cliente {
     
-    protected int totalContas = 4;
     protected int agencia;
     protected int numConta;
     protected float saldo;
